@@ -1,21 +1,22 @@
-//ejemplo 1
-
-let ropaEnStock = 5;
-if (ropaEnStock != 0) {
-  for (i = ropaEnStock; i > 0; i--) {
-    console.log("Gracias por la compra, aun nos queda " + i + " prenda(s)");
+// presupuesto de pagos en cuotas
+function presupuesto(monto, meses) {
+  let pagosPromedio = monto / meses;
+  let montoRestante = monto;
+  for (let i = 1; i <= meses; i++) {
+    montoRestante -= pagosPromedio;
+    if (montoRestante < 0.01) {
+      montoRestante = 0;
+    }
+    console.log(
+      "El pago del mes " +
+        i +
+        " es: " +
+        pagosPromedio +
+        ". Su saldo restante es: " +
+        montoRestante
+    );
   }
-} else {
-  console.log("Lo sentimos, ya no tenemos ropa");
 }
-
-// ejemplo 2
-
-const nombre = prompt("Ingrese su nombre");
-let edad = prompt("Ingrese su edad");
-
-while (edad < 18) {
-  edad = prompt("Necesita ser mayor de edad");
-}
-
-console.log("Bienvenido " + nombre + " al club");
+let montoDinero = parseInt(prompt("Ingrese el monto que quiere prestarse: "));
+let mesesDePago = parseInt(prompt("Ingrese la cantidad de meses para pagar: "));
+presupuesto(montoDinero, mesesDePago);
