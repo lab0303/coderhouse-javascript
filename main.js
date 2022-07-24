@@ -49,7 +49,7 @@ console.log(carrito);
 agregarAlCarrito({ id: 4, nombre: "HALO", plataforma: "XBOX" });
 console.log(mostrarNombres(carrito));
 
-let nombrePlataforma = prompt("Ingrese la plataforma ('PS5','XBOX','PC')");
+/*let nombrePlataforma = prompt("Ingrese la plataforma ('PS5','XBOX','PC')");
 let consola = nombrePlataforma.toUpperCase();
 let existePlataforma = carrito.some((el) => el.plataforma == consola);
 while (!existePlataforma) {
@@ -60,4 +60,15 @@ while (!existePlataforma) {
   existePlataforma = carrito.some((el) => el.plataforma == consola);
 }
 const juegosConsola = filtrarProducto(carrito, consola);
-alert("Los juegos de " + consola + " son: " + mostrarNombres(juegosConsola));
+alert("Los juegos de " + consola + " son: " + mostrarNombres(juegosConsola));*/
+
+
+
+let juegos = document.querySelector(".juegosConsola");
+
+for(const juego of carrito){
+  console.log(juego);
+  let juegoLista = document.createElement("div");
+  juegoLista.innerHTML = `<h2>${juego.nombre}--------${juego.plataforma}</h2>`;
+  juegos.appendChild(juegoLista);
+}
